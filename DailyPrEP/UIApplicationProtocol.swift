@@ -14,4 +14,8 @@ protocol UIApplicationProtocol {
     func open(_ url: URL, options: [String : Any], completionHandler completion: ((Bool) -> Swift.Void)?)
 }
 
-extension UIApplication: UIApplicationProtocol {}
+extension UIApplication: UIApplicationProtocol {
+    func open(_ url: URL, options: [String : Any], completionHandler completion: ((Bool) -> Void)?) {
+        
+    }
+}

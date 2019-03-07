@@ -146,7 +146,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource {
     
     func saveSelectedDate(cellState: CellState){
         let repository = RecordRepository(context: context)
-        var date = cellState.date
         _ = repository.upsert(date: cellState.date, isTaken: cellState.isSelected)
         repository.saveChanges()
     }
@@ -199,8 +198,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("DATE")
-        print (calendarView.visibleDates().monthDates.first?.date)
+//        print("DATE")
+//        print (calendarView.visibleDates().monthDates.first?.date)
         if let firstDayOfMonth = calendarView.visibleDates().monthDates.first?.date {
             let repository = RecordRepository(context: context)
             let records = repository.dateToCurrentDayRecords(date: firstDayOfMonth, isTaken: true)

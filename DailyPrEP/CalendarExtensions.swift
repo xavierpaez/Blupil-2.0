@@ -52,13 +52,11 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
     
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        let currentDate = Date()
             handleCellSelection(view: cell, cellState: cellState)
             handleCellTextColor(view: cell, cellState: cellState)
             saveSelectedDate(cellState: cellState)
             updateStats()
             self.swallowsSummaryCollectionView.reloadData()
-         
         }
     
     func calendar(_ calendar: JTAppleCalendarView, shouldSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) -> Bool {
@@ -137,7 +135,7 @@ extension UIColor {
 
 extension CGFloat {
     func toRadians() -> CGFloat {
-        return self * CGFloat(M_PI) / 180.0
+        return self * CGFloat(Double.pi) / 180.0
     }
 }
 

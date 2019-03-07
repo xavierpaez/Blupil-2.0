@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     }
     
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -61,14 +61,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
         UINavigationBar.appearance().barTintColor = UIColor(colorWithHexValue: 0x2BA4FF)
         UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
     
         setUpLocalNotifications()
         setUpRemoteNotifications(application)
         
         var shouldPerformAdditionalDelegateHandling = true
 
-        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+        if let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             
             launchedShortcutItem = shortcutItem
             
@@ -116,16 +116,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-                Messaging.messaging().disconnect()
-        
-        
+                Messaging.messaging().shouldEstablishDirectChannel = false
     }
 
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
         guard let shortcut = launchedShortcutItem else { return }
-        handleShortcutItem(shortcutItem: shortcut)
+        _ = handleShortcutItem(shortcutItem: shortcut)
         launchedShortcutItem = nil
         
 //        connectToFCM()
@@ -219,15 +217,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     }
     
     // MARK: Deeplinks
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return true
     }
 
 
     // MARK: Universal Links
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
-            if let url = userActivity.webpageURL {
+            if userActivity.webpageURL != nil {
                 
             }
         }

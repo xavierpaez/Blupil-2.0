@@ -14,7 +14,7 @@ class NotificationFactory {
         let content = UNMutableNotificationContent()
         content.title = "Don't miss the blue pill!"
         content.body = "Have you taken your PrEP today?"
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         content.badge = 1
         content.categoryIdentifier =  "PillReminder"
         

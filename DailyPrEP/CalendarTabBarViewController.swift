@@ -26,7 +26,7 @@ class CalendarTabBarViewController: UITabBarController {
         if let items = self.tabBar.items {
             for item in items {
                 item.title = ""
-                item.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+                item.imageInsets = UIEdgeInsets.init(top: 6, left: 0, bottom: -6, right: 0);
             }
         }
     }

@@ -80,7 +80,7 @@ class PillView: UIView {
         animation.duration = 2 // seconds
         animation.autoreverses = true
         animation.repeatCount = .infinity
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         
         shapeLayer.add(animation, forKey: "line")
     }
