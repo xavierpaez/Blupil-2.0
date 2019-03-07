@@ -56,8 +56,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource {
     private func setUpCalendar(){
         calendarView.calendarDataSource = self
         calendarView.calendarDelegate = self
-        
-        formatter.dateFormat = "yyyy MM dd"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss z"
         formatter.timeZone = calendar.timeZone
         formatter.locale = calendar.locale
         
@@ -91,7 +90,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource {
             let cellDay = calendar.component(.day, from: cellState.date)
             let cellMonth = calendar.component(.month, from: cellState.date)
             let currentDay = calendar.component(.day, from: date)
-            if cellState.dateBelongsTo == .thisMonth && cellDay < currentDay{
+            if cellState.dateBelongsTo == .thisMonth && cellDay > currentDay{
                 myCustomCell.dayLabel.textColor = lightGray
             } else if cellMonth != currentMonth {
                 myCustomCell.dayLabel.textColor =  lightGray
@@ -146,6 +145,10 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource {
     
     func saveSelectedDate(cellState: CellState){
         let repository = RecordRepository(context: context)
+        
+        var calendarDate = cellState.date
+        
+        
         _ = repository.upsert(date: cellState.date, isTaken: cellState.isSelected)
         repository.saveChanges()
     }

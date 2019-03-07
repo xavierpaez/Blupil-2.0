@@ -33,23 +33,30 @@ class ResourcesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resourceCell", for: indexPath)
-
         let resource = resources[indexPath.section][indexPath.row]
         cell.textLabel?.text = resource.title
         cell.detailTextLabel?.text = resource.subtitle
         return cell
 
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "webViewSegue" ,
-            let webView = segue.destination as? WebViewController,
-            let indexPath = self.tableView.indexPathForSelectedRow {
-            webView.url = resources[indexPath.section][indexPath.row].url
-            webView.title = resources[indexPath.section][indexPath.row].title
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "WebViewController") as? WebViewController else {
+            return
         }
+        
+        guard let locatorVC = storyboard?.instantiateViewController(withIdentifier: "ResourceLocatorView") as? LocationSearchViewController else {
+            return
+        }
+        
+        vc.url = resources[indexPath.section][indexPath.row].url
+        vc.title = resources[indexPath.section][indexPath.row].title
+        if indexPath.section == 4 {
+            self.navigationController?.pushViewController(locatorVC, animated: true)
+        } else {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
-    
-    
 
 }

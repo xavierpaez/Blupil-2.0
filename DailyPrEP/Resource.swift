@@ -11,14 +11,19 @@ import Foundation
 struct Resource {
 
     var title: String
-    var subtitle: String
-    var url: URL
+    var subtitle: String?
+    var url: URL?
     
     init(title: String, subtitle: String, url: URL)
     {
         self.title = title
         self.subtitle = subtitle
         self.url = url
+    }
+    
+    init(title: String)
+    {
+        self.title = title
     }
     
 }

@@ -14,22 +14,27 @@ class LocationSearchViewController: UIViewController, UITableViewDataSource, UIT
 
     let CDC_API_URL = "https://npin.cdc.gov/api/organization/proximity"
     var locations = [Location]()
+    
     @IBOutlet weak var locationSearchBar: UISearchBar!
     @IBOutlet weak var locationsTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        activityIndicator.stopAnimating()
         // Do any additional setup after loading the view.
     }
     
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
-            var url = "\(CDC_API_URL)?prox[origin]=\(searchText)"
+            let url = "\(CDC_API_URL)?prox[origin]=\(searchText)"
             print(url)
             locations.removeAll()
             getLocationsData(url: url)
+        } else{
+            locations.removeAll()
+            locationsTableView.reloadData()
         }
     }
     
@@ -39,7 +44,7 @@ class LocationSearchViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath)
-        
+        //Fix big here
         let location =  locations[indexPath.row]
         cell.textLabel?.text = location.title
         cell.detailTextLabel?.text = location.street
@@ -48,6 +53,7 @@ class LocationSearchViewController: UIViewController, UITableViewDataSource, UIT
     }
 
     func getLocationsData(url : String) {
+        activityIndicator.startAnimating()
         AF.request(url, method: .get)
             .responseJSON {
                 response in if response.result.isSuccess {
@@ -66,14 +72,23 @@ class LocationSearchViewController: UIViewController, UITableViewDataSource, UIT
             let titleField = object["title_field"].stringValue
             let street = object["field_org_street1"].stringValue
             let phone = object["field_org_phone"].stringValue
-            var location = Location(title: titleField, street: street, phone: phone)
+            let location = Location(title: titleField, street: street, phone: phone)
             locations.append(location)
         }
-        
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
         locationsTableView.reloadData()
         
     }
+    
     func updateTableViewUI(location : String){
         
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        locationSearchBar.endEditing(true)
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        locationSearchBar.endEditing(true)
     }
 }

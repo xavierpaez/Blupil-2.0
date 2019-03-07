@@ -54,15 +54,6 @@ class PillView: UIView {
     }
 
     
-//    override func draw(_ rect: CGRect) {
-//        self.createReactangle()
-//
-//        UIColor.orange.setFill()
-//        path.fill()
-//
-//        UIColor.purple.setStroke()
-//        path.stroke()
-//    }
     
     func simpleShapeLayer() {
 
@@ -71,18 +62,18 @@ class PillView: UIView {
         shapeLayer.path = self.path.cgPath
         shapeLayer.fillColor = UIColor(colorWithHexValue: 0x2BA4FF).cgColor
         shapeLayer.strokeColor = UIColor(red:0.24, green:0.50, blue:0.75, alpha:1.0).cgColor
-        shapeLayer.strokeEnd = 0
+        shapeLayer.strokeEnd = 1
         shapeLayer.lineWidth = 12.0
         self.layer.addSublayer(shapeLayer)
         
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.toValue = 1
-        animation.duration = 2 // seconds
-        animation.autoreverses = true
-        animation.repeatCount = .infinity
-        animation.fillMode = CAMediaTimingFillMode.forwards
-        
-        shapeLayer.add(animation, forKey: "line")
+//        let animation = CABasicAnimation(keyPath: "strokeEnd")
+//        animation.toValue = 1
+//        animation.duration = 2 // seconds
+//        animation.autoreverses = true
+//        animation.repeatCount = .infinity
+//        animation.fillMode = CAMediaTimingFillMode.forwards
+////
+//        shapeLayer.add(animation, forKey: "line")
     }
     
   
