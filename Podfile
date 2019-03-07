@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 inhibit_all_warnings!
 
@@ -14,6 +14,8 @@ target 'DailyPrEP' do
   pod 'Firebase/Messaging'
   pod 'Firebase/Auth'
   pod 'paper-onboarding'
+  pod 'Alamofire', '~> 5.0.0-beta.2'
+  pod 'SwiftyJSON', '~> 4.0'
 
   target 'DailyPrEPTests' do
     inherit! :search_paths

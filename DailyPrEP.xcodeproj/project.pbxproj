@@ -10,6 +10,8 @@
 		102EFDDD68D2690A124BC8EB /* Pods_DailyPrEPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07682BD39A7731FC072B655A /* Pods_DailyPrEPTests.framework */; };
 		6C65875217CFA0BA63ECF11D /* Pods_DailyPrEP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 735929885305A8BA2778A03D /* Pods_DailyPrEP.framework */; };
 		6D78F99E95DAFB31B81C1BEA /* Pods_DailyPrEPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAAE4CF8ADD95B56952FA75 /* Pods_DailyPrEPUITests.framework */; };
+		7E2EC60B2231762C0054ADBF /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2EC60A2231762C0054ADBF /* LocationSearchViewController.swift */; };
+		7E2EC60D2231773A0054ADBF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2EC60C2231773A0054ADBF /* Location.swift */; };
 		C10753661E72488C00C067E2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C10753651E72488B00C067E2 /* GoogleService-Info.plist */; };
 		C11866CD1F1ED2120015D97D /* Preprefills+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11866CB1F1ED2120015D97D /* Preprefills+CoreDataClass.swift */; };
 		C11866CE1F1ED2120015D97D /* Preprefills+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11866CC1F1ED2120015D97D /* Preprefills+CoreDataProperties.swift */; };
@@ -75,6 +77,8 @@
 		21A1F90019D829E392DE3BA5 /* Pods-DailyPrEPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyPrEPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyPrEPTests/Pods-DailyPrEPTests.release.xcconfig"; sourceTree = "<group>"; };
 		49C55F318B1100C3F13C746A /* Pods-DailyPrEPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyPrEPUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyPrEPUITests/Pods-DailyPrEPUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		735929885305A8BA2778A03D /* Pods_DailyPrEP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyPrEP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E2EC60A2231762C0054ADBF /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
+		7E2EC60C2231773A0054ADBF /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B3CC4858E298134053EBDA82 /* Pods-DailyPrEP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyPrEP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyPrEP/Pods-DailyPrEP.debug.xcconfig"; sourceTree = "<group>"; };
 		C10753651E72488B00C067E2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C11866CB1F1ED2120015D97D /* Preprefills+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Preprefills+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				C1C897091F1871D000C396A2 /* RefillCalendarViewController.swift */,
 				C154F4A21F42071A00ED9C4A /* SettingsTableViewController.swift */,
 				C1D4AAC421096CBB00A7B3E9 /* MainPillViewController.swift */,
+				7E2EC60A2231762C0054ADBF /* LocationSearchViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				C14E99771E75FD1F00E246F5 /* Record+CoreDataProperties.swift */,
 				C1309DE01E76332D00A71EE1 /* Resource.swift */,
 				C11866CF1F1EE8540015D97D /* RefillRepository.swift */,
+				7E2EC60C2231773A0054ADBF /* Location.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -494,26 +500,30 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DailyPrEP/Pods-DailyPrEP-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DailyPrEP/Pods-DailyPrEP-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DailyPrEP/Pods-DailyPrEP-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DailyPrEP/Pods-DailyPrEP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		83EA8AA20B34D38E5CE8BFB5 /* [CP] Check Pods Manifest.lock */ = {
@@ -586,10 +596,12 @@
 				C1309DE51E763BE500A71EE1 /* WebViewController.swift in Sources */,
 				C1465F631E8AA29600FB24F2 /* PopUpViewController.swift in Sources */,
 				C14696451E593697003F1C86 /* CalendarTabBarViewController.swift in Sources */,
+				7E2EC60D2231773A0054ADBF /* Location.swift in Sources */,
 				C1309DDF1E76324600A71EE1 /* ResourcesDataManager.swift in Sources */,
 				C1D4AAC7210AB76100A7B3E9 /* PillView.swift in Sources */,
 				C160FCD41EA4509A002B05B2 /* RefillsViewController.swift in Sources */,
 				C123D9891F303B1F00570702 /* SettingsDataManager.swift in Sources */,
+				7E2EC60B2231762C0054ADBF /* LocationSearchViewController.swift in Sources */,
 				C1ED6B851E58CB2B007ECA3C /* CalendarCellView.swift in Sources */,
 				C1D3A8941E4A45DD0061B21C /* AppDelegate.swift in Sources */,
 			);

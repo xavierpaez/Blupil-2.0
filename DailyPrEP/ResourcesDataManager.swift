@@ -20,8 +20,9 @@ class ResourceDataManager {
         let prepResources: [Resource] = [
             Resource(title: "What is PrEP?", subtitle: "https://www.cdc.gov", url: URL(string: "https://www.cdc.gov/hiv/basics/prep.html")!),
             Resource(title: "The Questions About PrEP", subtitle: "https://men.prepfacts.org", url: URL(string: "https://men.prepfacts.org/the-questions/")!),
-            Resource(title: "PrEP Medication Assistance Program", subtitle: "https://www.gilead.com", url: URL(string: "https://www.gileadadvancingaccess.com/get-started-advancing-access")!),
+            Resource(title: "PrEP Medication Assistance Program", subtitle: "https://www.gilead.com", url: URL(string: "https://www.gileadadvancingaccess.com/?utm_source=TruvadaPREP_DTC&utm_medium=referral")!),
             Resource(title: "Payments Options for PrEP (NY)", subtitle: "https://www.health.ny.gov/", url: URL(string: "https://www.health.ny.gov/diseases/aids/general/prep/docs/payment_options.pdf")!)
+            
             
         ]
         

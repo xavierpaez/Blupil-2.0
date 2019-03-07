@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.0.0-beta.2)
   - Firebase (4.12.0):
     - Firebase/Core (= 4.12.0)
   - Firebase/Auth (4.12.0):
@@ -50,17 +51,21 @@ PODS:
   - nanopb/encode (0.3.8)
   - paper-onboarding (4.0.2)
   - Protobuf (3.5.0)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0.0-beta.2)
   - Firebase
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Messaging
   - JTAppleCalendar (~> 7.0)
   - paper-onboarding
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -73,8 +78,10 @@ SPEC REPOS:
     - nanopb
     - paper-onboarding
     - Protobuf
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: d1e5493588babe3e7b56ae29e8032942f4de09fe
   Firebase: d7fdf40e4d6c841849c52919f437fd3a0009ded0
   FirebaseAnalytics: 3dfae28d4a5e06f86c4fae830efc2ad3fadb19bc
   FirebaseAuth: 85a1b118a89838efc6f6ab3f2b1f94747d72a915
@@ -87,7 +94,8 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   paper-onboarding: e6e2778c4e8de8db1d798bb7e3b4922e91fb7f99
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: c1a34dc672b2b4e6097cea9b1c3c674184d53dc2
+PODFILE CHECKSUM: 753651f47b1cd1e578bf66197da9853c57a7fe87
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

@@ -37,8 +37,8 @@ class ResourcesTableViewController: UITableViewController {
         let resource = resources[indexPath.section][indexPath.row]
         cell.textLabel?.text = resource.title
         cell.detailTextLabel?.text = resource.subtitle
-
         return cell
+
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,5 +49,7 @@ class ResourcesTableViewController: UITableViewController {
             webView.title = resources[indexPath.section][indexPath.row].title
         }
     }
+    
+    
 
 }
