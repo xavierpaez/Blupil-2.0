@@ -131,7 +131,7 @@ extension PageViewItem {
             $0.duration = duration
             $0.toValue = path.cgPath
             $0.isRemovedOnCompletion = false
-            $0.fillMode = CAMediaTimingFillMode.forwards
+            $0.fillMode = .forwards
         }
         return animation
     }
@@ -141,14 +141,14 @@ extension PageViewItem {
             $0.duration = duration
             $0.toValue = toColor.cgColor
             $0.isRemovedOnCompletion = false
-            $0.fillMode = CAMediaTimingFillMode.forwards
-            $0.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            $0.fillMode = .forwards
+            $0.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         }
         return animation
     }
 
     fileprivate func imageAlphaAnimation(_ toValue: CGFloat, duration: Double) {
-        UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(), animations: {
+        UIView.animate(withDuration: duration, delay: 0, animations: {
             self.imageView?.alpha = toValue
         }, completion: nil)
     }

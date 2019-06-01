@@ -18,8 +18,10 @@ public struct OnboardingItemInfo {
     public let descriptionColor: UIColor
     public let titleFont: UIFont
     public let descriptionFont: UIFont
+    public let descriptionLabelPadding: CGFloat
+    public let titleLabelPadding: CGFloat
     
-    public init (informationImage: UIImage, title: String, description: String, pageIcon: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont) {
+    public init (informationImage: UIImage, title: String, description: String, pageIcon: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont, descriptionLabelPadding: CGFloat = 0, titleLabelPadding: CGFloat = 0) {
         self.informationImage = informationImage
         self.title = title
         self.description = description
@@ -29,6 +31,8 @@ public struct OnboardingItemInfo {
         self.descriptionColor = descriptionColor
         self.titleFont = titleFont
         self.descriptionFont = descriptionFont
+        self.descriptionLabelPadding = descriptionLabelPadding
+        self.titleLabelPadding = titleLabelPadding
     }
 }
 
@@ -52,20 +56,18 @@ open class PaperOnboarding: UIView {
     fileprivate var itemsInfo: [OnboardingItemInfo]?
 
     fileprivate let pageViewBottomConstant: CGFloat
-    fileprivate var pageViewSelectedRadius: CGFloat
-    fileprivate var pageViewRadius: CGFloat
+    fileprivate var pageViewSelectedRadius: CGFloat = 22
+    fileprivate var pageViewRadius: CGFloat = 8
 
     fileprivate var fillAnimationView: FillAnimationView?
     fileprivate var pageView: PageView?
-    fileprivate var gestureControl: GestureControl?
+    public fileprivate(set) var gestureControl: GestureControl?
     fileprivate var contentView: OnboardingContentView?
     
-    public init(pageViewBottomConstant: CGFloat = 32, pageViewSelectedRadius: CGFloat = 22, pageViewRadius: CGFloat = 8) {
+    public init(pageViewBottomConstant: CGFloat = 32) {
         
         self.pageViewBottomConstant = pageViewBottomConstant
-        self.pageViewSelectedRadius = pageViewSelectedRadius
-        self.pageViewRadius = pageViewRadius
-        
+
         super.init(frame: CGRect.zero)
     }
     

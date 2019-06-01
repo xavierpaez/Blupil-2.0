@@ -1,6 +1,0 @@
-framework module Pods_DailyPrEPUITests {
-  umbrella header "Pods-DailyPrEPUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

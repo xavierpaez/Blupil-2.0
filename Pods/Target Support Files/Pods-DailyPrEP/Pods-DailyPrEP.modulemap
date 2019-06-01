@@ -1,6 +1,0 @@
-framework module Pods_DailyPrEP {
-  umbrella header "Pods-DailyPrEP-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -44,7 +44,7 @@ class PillView: UIView {
     }
     
  
-    func createTriangle() {
+    func createPillshape() {
         path = UIBezierPath()
         let pillRadius = self.frame.width/2 - 70
         path.addArc(withCenter: CGPoint(x: self.frame.width/2, y: pillRadius), radius: self.frame.width/2-70, startAngle: CGFloat(180.0).toRadians(), endAngle:CGFloat(0.0).toRadians(), clockwise: true)
@@ -52,12 +52,12 @@ class PillView: UIView {
         path.addArc(withCenter: (CGPoint(x: self.frame.width/2, y: self.frame.height-pillRadius)), radius: pillRadius, startAngle: CGFloat(0.0).toRadians(), endAngle: CGFloat(180.0).toRadians(), clockwise: true)
         path.close()
     }
-
+    
     
     
     func simpleShapeLayer() {
 
-        self.createTriangle()
+        self.createPillshape()
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = self.path.cgPath
         shapeLayer.fillColor = UIColor(colorWithHexValue: 0x2BA4FF).cgColor
